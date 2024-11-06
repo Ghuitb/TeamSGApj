@@ -3,6 +3,9 @@
 
 # ±‚≈∏
 x64/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
 
 ### UnrealEngine ###
 # Visual Studio 2015 user specific files

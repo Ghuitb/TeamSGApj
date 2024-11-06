@@ -1,9 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include <array>
-#include <algorithm>
-#include <string>
+//#include <algorithm>
 
 
 class Net_Data

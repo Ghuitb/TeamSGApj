@@ -6,13 +6,14 @@
 class Net_SendData
 {
 public:
-	Net_SendData(Net_Data& data)
-		: data_(data) {}
+	Net_SendData() {}
 	~Net_SendData() {}
 
 	void getUserInput();
 
+	Net_Data& GetData();
+
 private:
-	Net_Data& data_;
+	Net_Data data_;
 };
 

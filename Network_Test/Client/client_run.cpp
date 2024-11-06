@@ -1,23 +1,23 @@
 #include "Net_socket.h"
 #include "Net_IO.h"
-#include "Net_data.h"
 #include "Net_SendData.h"
+//#include "Net_Data.h"
 
 int main()
 {
-	// 네트워크 송수신 데이터 구조 생성
-	Net_Data data;
+	// 네트워크 송수신 데이터 구조 생성 -> SendData 객체에서 생성하고 사용하는 것으로 변경
+	// Net_Data data;
 
 	// 서버와 연결되는 소켓을 생성하고 전달하는 역할을 실행하는 Net_Socket의 객체를 생성
 	Net_Socket sock;
 	if (!sock.InitSocket())		// 정상 생성 확인
 		return 1;
 
-	// 데이터 송수신을 담당하는 Net_IO 객체를 생성하며 소켓과 데이터 구조를 전달
-	Net_IO IO(sock.GetSocket(), data);
-
 	// 클라이언트에서 서버로 전송할 데이터를 수집, 가공해서 송수신을 담당하는 Net_SendData 객체 생성
-	Net_SendData sender(data);
+	Net_SendData sender;
+
+	// 데이터 송수신을 담당하는 Net_IO 객체를 생성하며 소켓과 데이터 구조를 전달
+	Net_IO IO(sock.GetSocket(), sender.GetData());
 
 	// 데이터 송수신을 담당하는 Net_IO 객체를 사용, 서버로부터 데이터를 전송받는 스레드를 생성
 	IO.recvThread();

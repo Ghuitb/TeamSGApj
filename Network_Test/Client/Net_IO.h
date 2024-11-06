@@ -4,7 +4,6 @@
 #include "Net_Data.h"
 
 #include <thread>
-#include <string>
 
 /*
 연결된 소켓을 받아와서
@@ -22,7 +21,7 @@ class Net_IO
 {
 public:
 	Net_IO(SOCKET& socket, Net_Data& data)
-		: IOsock(socket), IOData(data) {}
+		: IOSock(socket), IOData(data) {}
 	~Net_IO() {}
 
 	void recvOtherData();
@@ -30,6 +29,6 @@ public:
 	void sendData();
 
 private:
-	SOCKET& IOsock;
+	SOCKET& IOSock;
 	Net_Data& IOData;
 };

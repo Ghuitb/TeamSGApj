@@ -11,3 +11,8 @@ void Net_SendData::getUserInput()
 	data_.A = i;
 	data_.B = f;
 }
+
+Net_Data& Net_SendData::GetData()
+{
+	return data_;
+}

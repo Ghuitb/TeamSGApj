@@ -1,9 +1,5 @@
 #include "Net_IO.h"
 
-#include <iostream>
-#include <string>
-#include <array>
-
 void Net_IO::recvOtherData()
 {
 	constexpr const int bufferSize = sizeof(IOData);
@@ -11,7 +7,7 @@ void Net_IO::recvOtherData()
 
 	while (true)
 	{
-		int recvSize = recv(IOsock, buffer, bufferSize, 0);
+		int recvSize = recv(IOSock, buffer, bufferSize, 0);
 
 		if (recvSize <= 0)
 			break;
@@ -34,6 +30,6 @@ void Net_IO::sendData()
 	IOData.serialize(buffer);  // Net_Data 직렬화
 
 	// Net_IO를 통해 직렬화된 데이터 전송
-	send(IOsock, buffer, bufferSize, 0);
+	send(IOSock, buffer, bufferSize, 0);
 }
 
